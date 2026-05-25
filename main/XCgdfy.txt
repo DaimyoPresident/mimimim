@@ -1,0 +1,37 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+class NumberList {
+public:
+    void addNumber(int number) {
+        numbers.push_back(number);
+    }
+
+    void displaySorted() {
+        std::sort(numbers.begin(), numbers.end());
+        std::cout << "Sorted numbers: ";
+        for (const int& number : numbers) {
+            std::cout << number << " ";
+        }
+        std::cout << std::endl;
+    }
+
+private:
+    std::vector<int> numbers;
+};
+
+int main() {
+    NumberList list;
+    int num;
+
+    std::cout << "Enter numbers (enter -1 to stop): " << std::endl;
+    while (true) {
+        std::cin >> num;
+        if (num == -1) break;
+        list.addNumber(num);
+    }
+
+    list.displaySorted();
+    return 0;
+}
